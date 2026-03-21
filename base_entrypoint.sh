@@ -1,9 +1,13 @@
 #!/usr/bin/env bash
 set -e
 
-# Add password to x11vnc options
+# Add password to vnc options
 if [ -n "${VNC_PASSWORD}" ]; then
-    X11VNC_OPTIONS="${X11VNC_OPTIONS} -passwd '${VNC_PASSWORD}'"
+    mkdir -p ~/.vnc
+    echo "${VNC_PASSWORD}" | vncpasswd -f > ~/.vnc/passwd
+    export VNC_OPTIONS="${VNC_OPTIONS} -SecurityTypes VncAuth -PasswordFile /root/.vnc/passwd"
+else
+    export VNC_OPTIONS="${VNC_OPTIONS} -SecurityTypes None"
 fi
 
 # Print current VNC info

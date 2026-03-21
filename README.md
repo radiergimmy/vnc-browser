@@ -57,12 +57,10 @@ You can customize the settings of the Docker container by passing environment va
 - Enabling/disabling auto-start for the browser: `AUTO_START_BROWSER=true` or `AUTO_START_BROWSER=false`
 - Enabling/disabling auto-start for xterm: `AUTO_START_XTERM=true` or `AUTO_START_XTERM=false`
 - Enabling/disabling auto-start for window manager (fluxbox): `AUTO_START_WM=true` or `AUTO_START_WM=false`
-- Enabling/disabling auto-start for x11vnc: `AUTO_START_X11VNC=true` or `AUTO_START_X11VNC=false`
-- Enabling/disabling auto-start for xvfb: `AUTO_START_XVFB=true` or `AUTO_START_XVFB=false`
+- Enabling/disabling auto-start for vnc (tigervnc): `AUTO_START_VNC=true` or `AUTO_START_VNC=false`
 - Enabling/disabling auto-start for noVNC (websockify): `AUTO_START_NOVNC=true` or `AUTO_START_NOVNC=false`
 - Adding command options for browser: `BROWSER_OPTIONS="--start-fullscreen --kiosk --incognito --noerrdialogs --no-first-run --disk-cache-dir=/dev/null"`
-- Adding command options for x11vnc: `X11VNC_OPTIONS="-nocursor"`
-- Adding command options for xvfb: `XVFB_OPTIONS="-nocursor"`
+- Adding command options for vnc (tigervnc): `VNC_OPTIONS="-AlwaysShared"`
 - Adding command options for window manager (fluxbox): `WM_OPTIONS="-rc /app/fluxbox.conf"`
 - Adding command options for noVNC (websockify): `NOVNC_OPTIONS="--heartbeat=10"`
 - Adding command options for xterm: `XTERM_OPTIONS="-leftbar"`
@@ -83,14 +81,12 @@ You can customize the settings of the Docker container by passing environment va
 | AUTO_START_BROWSER     | true                              | Automatically start the browser |
 | AUTO_START_XTERM       | true                              | Automatically start xterm |
 | AUTO_START_WM          | true                              | Automatically start window manager (fluxbox) |
-| AUTO_START_X11VNC      | true                              | Automatically start x11vnc |
-| AUTO_START_XVFB        | true                              | Automatically start xvfb |
+| AUTO_START_VNC         | true                              | Automatically start vnc (tigervnc) |
 | AUTO_START_NOVNC       | true                              | Automatically start noVNC (websockify) |
 | CUSTOM_ENTRYPOINTS_DIR | /app/custom_entrypoints_scripts   | Directory for custom entry point scripts |
 | DEBIAN_FRONTEND        | noninteractive                    | Frontend setting for Debian-based installations |
 | BROWSER_OPTIONS        |                                   | Additional command options to provide to browser start |
-| X11VNC_OPTIONS         |                                   | Additional command options to provide to x11vnc start |
-| XVFB_OPTIONS           |                                   | Additional command options to provide to xvfb start |
+| VNC_OPTIONS            |                                   | Additional command options to provide to vnc (tigervnc) start |
 | WM_OPTIONS             |                                   | Additional command options to provide to window manager (fluxbox) start |
 | NOVNC_OPTIONS          |                                   | Additional command options to provide to noVNC (websockify) start |
 | XTERM_OPTIONS          |                                   | Additional command options to provide to xterm start |
