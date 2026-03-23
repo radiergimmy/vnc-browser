@@ -1,10 +1,10 @@
 name: Build, Test & Push images
 
 on:
-  push:
-    tags:
-      - "*.*.*"   # e.g., 1.0.0, 2.1.3
-  workflow_dispatch:
+  schedule:
+    # Every Sunday at 03:00 UTC
+    - cron: "0 3 * * 0"
+  workflow_dispatch: {}
 
 env:
   IMAGE_NAME: ${{ vars.IMAGE_NAME }}
@@ -20,12 +20,24 @@ jobs:
       matrix:
         include:
           - variant: debian
-            dockerfile: ./debian.dockerfile
+            dockerfile: ./debian-Chromium.dockerfile
             tag: debian
             latest: true
+          - variant: debian
+            dockerfile: ./debian-Brave.dockerfile
+            tag: debian
+            latest: false
+          - variant: debian
+            dockerfile: ./debian-Chrome.dockerfile
+            tag: debian
+            latest: false
+          - variant: debian
+            dockerfile: ./debian-MSEdge.dockerfile
+            tag: debian
+            latest: false
           - variant: alpine
-            dockerfile: ./alpine.dockerfile
-            tag: alpine
+            dockerfile: ./alpine-Firefox.dockerfile
+            tag: firefox
             latest: false
 
     steps:
