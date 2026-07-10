@@ -65,3 +65,5 @@ if [ $buildEdgeStatus -eq 0 ]; then
 else
 	echo "$buildEdgeStatus"
 fi
+
+sudo docker image prune -a -f
